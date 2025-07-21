@@ -20,13 +20,13 @@ services:
       - ./client/public/assets/br-fav-touch.webp:/app/client/public/assets/br-fav-touch.webp
 
       # Also mount into dist in case frontend is served from there
-      # - ./client/public/assets/br-fav-32-round.webp:/app/client/dist/assets/br-fav-32-round.webp
-      # - ./client/public/assets/br-fav-16.webp:/app/client/dist/assets/br-fav-16.webp
-      # - ./client/public/assets/br-fav-touch.webp:/app/client/dist/assets/br-fav-touch.webp
+      - ./client/public/assets/br-fav-32-round.webp:/app/client/dist/assets/br-fav-32-round.webp
+      - ./client/public/assets/br-fav-16.webp:/app/client/dist/assets/br-fav-16.webp
+      - ./client/public/assets/br-fav-touch.webp:/app/client/dist/assets/br-fav-touch.webp
 
       # Auth page logo image
       - ./client/public/assets/br-wide.png:/app/client/public/assets/br-wide.png
-      # - ./client/public/assets/br-wide.png:/app/client/dist/assets/br-wide.png
+      - ./client/public/assets/br-wide.png:/app/client/dist/assets/br-wide.png
 
 # ---------------------------------------------------
 

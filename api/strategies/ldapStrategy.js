@@ -143,6 +143,22 @@ const ldapLogin = new LdapStrategy(ldapOptions, async (userinfo, done) => {
     logger.error('[ldapStrategy]', err);
     done(err);
   }
+  
 });
+
+// 🔧 PATCH: Normalize casing before username substitution
+if (
+  ldapOptions.usernameField &&
+  process.env.LDAP_NORMALIZE_USERNAME === 'true'
+) {
+  const originalVerify = ldapLogin._verify;
+  ldapLogin._verify = function (req, userinfo, done) {
+    const field = ldapOptions.usernameField;
+    if (req.body && req.body[field]) {
+      req.body[field] = req.body[field].trim().toLowerCase();
+    }
+    return originalVerify.call(this, req, userinfo, done);
+  };
+}
 
 module.exports = ldapLogin;

@@ -134,3 +134,4 @@ helm/**/.values.yaml
 /.openai/
 /.tabnine/
 /.codeium
+.env\nnode_modules\n*.log\ndist/

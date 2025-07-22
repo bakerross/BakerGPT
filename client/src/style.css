@@ -29,6 +29,8 @@
   --green-800: #065f46;
   --green-900: #064e3b;
   --green-950: #022c22;
+  --br-blue: #0079C1;
+  --br-blue-hover: #005A8C;
   --red-50: #fef2f2;
   --red-100: #fee2e2;
   --red-200: #fecaca;
@@ -83,8 +85,8 @@ html {
   --surface-tertiary: var(--gray-100);
   --surface-tertiary-alt: var(--white);
   --surface-dialog: var(--white);
-  --surface-submit: var(--green-700);
-  --surface-submit-hover: var(--green-800);
+  --surface-submit: var(--br-blue);
+  --surface-submit-hover: var(--br-blue-hover);
   --surface-destructive: var(--red-700);
   --surface-destructive-hover: var(--red-800);
   --surface-chat: var(--white);

@@ -4,7 +4,7 @@ services:
     #   context: .
     #   dockerfile: Dockerfile.multi
     #   target: api-build
-    image: ghcr.io/danny-avila/librechat-dev-api:latest
+    image: bakergpt:v0.7.9
     container_name: LibreChat-API
     ports:
       - 3080:3080

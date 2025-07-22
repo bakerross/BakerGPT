@@ -3,6 +3,7 @@
 
 # Base for all builds
 FROM node:20-alpine AS base-min
+
 # Install jemalloc
 RUN apk add --no-cache jemalloc
 # Set environment variable to use jemalloc
@@ -55,6 +56,17 @@ RUN npm run build
 
 # API setup (including client dist)
 FROM base-min AS api-build
+
+# Image Description for GHCR
+ARG BUILD_TITLE="BakerGPT"
+ARG BUILD_VERSION="dev"
+ARG BUILD_TIMESTAMP="1974-01-01T00:00:00Z"
+LABEL org.opencontainers.image.description="Baker Ross branded deployment image of LibreChat"
+LABEL org.opencontainers.image.title="${BUILD_TITLE}"
+LABEL org.opencontainers.image.version="${BUILD_VERSION}"
+LABEL org.opencontainers.image.created="${BUILD_TIMESTAMP}"
+LABEL org.opencontainers.image.source="https://github.com/bakerross/BakerGPT"
+
 # Add `uv` for extended MCP support
 COPY --from=ghcr.io/astral-sh/uv:0.6.13 /uv /uvx /bin/
 RUN uv --version

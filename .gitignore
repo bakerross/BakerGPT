@@ -28,7 +28,7 @@ client/src/localization/languages/*_missing_keys.json
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
-# dist/
+dist/
 public/main.js
 public/main.js.map
 public/main.js.LICENSE.txt
@@ -36,9 +36,6 @@ client/public/images/
 client/public/main.js
 client/public/main.js.map
 client/public/main.js.LICENSE.txt
-packages/api/dist/
-packages/data-provider/dist/
-packages/data-schemas/dist/
 
 # Azure Blob Storage Emulator (Azurite)
 __azurite**

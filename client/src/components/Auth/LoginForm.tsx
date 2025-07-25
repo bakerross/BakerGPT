@@ -25,7 +25,6 @@ const LoginForm: React.FC<TLoginFormProps> = ({ onSubmit, startupConfig, error, 
   } = useForm<TLoginUser>();
   const [showResendLink, setShowResendLink] = useState<boolean>(false);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
-  const [version, setVersion] = useState<string | null>(null);
 
   const { data: config } = useGetStartupConfig();
   const useUsernameLogin = config?.ldap?.username;
@@ -37,15 +36,6 @@ const LoginForm: React.FC<TLoginFormProps> = ({ onSubmit, startupConfig, error, 
       setShowResendLink(true);
     }
   }, [error, showResendLink]);
-
-  useEffect(() => {
-    fetch('/VERSION.txt')
-      .then((res) => (res.ok ? res.text() : null))
-      .then((text) => {
-        if (text) setVersion(text.trim());
-      })
-      .catch(() => {});
-  }, []);
 
   const resendLinkMutation = useResendVerificationEmail({
     onMutate: () => {
@@ -187,11 +177,6 @@ const LoginForm: React.FC<TLoginFormProps> = ({ onSubmit, startupConfig, error, 
             {isSubmitting ? <Spinner /> : localize('com_auth_continue')}
           </Button>
         </div>
-        {version && (
-          <div className="mt-4 text-center text-xs text-gray-400" data-testid="site-version">
-            Version: {version}
-          </div>
-        )}
       </form>
     </>
   );

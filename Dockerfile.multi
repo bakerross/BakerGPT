@@ -60,10 +60,12 @@ FROM base-min AS api-build
 # Image Description for GHCR
 ARG BUILD_TITLE="BakerGPT"
 ARG BUILD_VERSION="dev"
+ARG COMMIT_SHA="github"
 ARG BUILD_TIMESTAMP="1974-01-01T00:00:00Z"
 LABEL org.opencontainers.image.description="Baker Ross branded deployment image of LibreChat"
 LABEL org.opencontainers.image.title="${BUILD_TITLE}"
 LABEL org.opencontainers.image.version="${BUILD_VERSION}"
+LABEL org.opencontainers.image.revision="${COMMIT_SHA}"
 LABEL org.opencontainers.image.created="${BUILD_TIMESTAMP}"
 LABEL org.opencontainers.image.source="https://github.com/bakerross/BakerGPT"
 
